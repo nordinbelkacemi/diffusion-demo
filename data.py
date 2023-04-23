@@ -38,8 +38,3 @@ def prepare_dataset(split):
         .batch(batch_size, drop_remainder=True)
         .prefetch(buffer_size=tf.data.AUTOTUNE)
     )
-
-
-# load dataset
-train_dataset = prepare_dataset("train[:80%]+validation[:80%]+test[:80%]")
-val_dataset = prepare_dataset("train[80%:]+validation[80%:]+test[80%:]")
